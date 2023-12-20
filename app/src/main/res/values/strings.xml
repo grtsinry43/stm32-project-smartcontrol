@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">智慧控制</string>
+    <string name="greeting">Hi~ 欢迎回来</string>
+    <string name="mode_list">功能选项</string>
+    <string name="list_extend">查看全部</string>
+    <string name="connect">连接设备</string>
+    <string name="manual_mode">手动控制</string>
+    <string name="ready">准备就绪</string>
+    <string name="scan_qrcode">扫描物流</string>
+    <string name="confirm">确认签收</string>
+    <string name="not_connected">等待连接</string>
+    <string name="description">设备：智慧物流车</string>
+    <string name="information">作为对接驿站与用户的智能运输工具，该车辆能够自主识别道路，及时应对错综复杂的交通环境，解决在多路口，多目的地快件运输时人力不够多、运力跟不上等难题。为确保交通安全与快件完好，该车能够通过超声测距调节速度并及时避障，防范交通事故发生。此外，工作人员能通过使用我们团队开发app，实现在驿站扫码自动发送目的地信息，车辆识别后即可运输，同时对快件进行实时追踪，更新物流进度，并同步数据至后台，实现大数据下对物流系统的无人监控并定期维护自检。快件安全性方面，车辆装载有封闭加密货箱，仅在蓝牙识别成功后方能打开，极大程度保障快件安全。到达目的地后，小车能够通过履带传动摆放货物。在极端条件下，车辆也能够通过手机蓝牙进行人工接管紧急避险。</string>
+</resources>
