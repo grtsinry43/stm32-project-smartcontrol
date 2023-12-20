@@ -11,6 +11,7 @@ import android.view.View;
 import android.Manifest;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,6 +77,15 @@ public class DeviceList extends AppCompatActivity {
                 bluetoothService = BluetoothService.getInstance(DeviceList.this, address);
                 bluetoothService.connect();
                 bluetoothService.startListening();
+            }
+        });
+
+        ImageView imageView = findViewById(R.id.imageView14);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }

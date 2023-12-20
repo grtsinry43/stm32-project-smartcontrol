@@ -96,7 +96,18 @@ public class ManualControlActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ImageView imageView = findViewById(R.id.imageView14);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     private byte[] hexStringToByteArray(String s) {
         int len = s.length();
