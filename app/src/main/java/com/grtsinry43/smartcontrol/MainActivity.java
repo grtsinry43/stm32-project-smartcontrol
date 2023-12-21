@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                TODO: 实现这个界面
-//                TODO: 实现接到对应的HEX码后，弹出通知,并返回回应指令
+                Intent intent5 = new Intent(v.getContext(), InformationActivity.class);
+                startActivity(intent5);
             }
         });
 
