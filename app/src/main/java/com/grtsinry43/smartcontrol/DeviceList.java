@@ -77,6 +77,8 @@ public class DeviceList extends AppCompatActivity {
                 bluetoothService = BluetoothService.getInstance(DeviceList.this, address);
                 bluetoothService.connect();
                 bluetoothService.startListening();
+                Intent intent4 = new Intent(view.getContext(), MainActivity.class);
+                startActivity(intent4);
             }
         });
 

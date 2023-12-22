@@ -36,17 +36,13 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/device_list"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_margin="20dp"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        tools:layout_editor_absoluteX="351dp">
-        <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/device_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
+        android:layout_marginTop="50dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

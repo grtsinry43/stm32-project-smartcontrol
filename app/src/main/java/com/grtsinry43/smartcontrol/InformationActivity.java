@@ -1,11 +1,14 @@
 package com.grtsinry43.smartcontrol;
 
+import static com.grtsinry43.smartcontrol.MainActivity.hexStringToByteArray;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Observer;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -20,7 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
 public class InformationActivity extends AppCompatActivity implements BluetoothService.BluetoothDataListener{
+
     private TextView textView;
     private ImageView imageView;
     private CardView cardView1;
@@ -47,14 +52,13 @@ public class InformationActivity extends AppCompatActivity implements BluetoothS
 
         Intent intent = getIntent();
         String deviceAddress = intent.getStringExtra("device_address");
+
         if (deviceAddress != null) {
             bluetoothService = BluetoothService.getInstance(getApplicationContext(), deviceAddress);
         } else {
             // Handle the case where deviceAddress is null
             Toast.makeText(InformationActivity.this, "请先连接设备哦~", Toast.LENGTH_SHORT).show();
         }
-
-        BluetoothService.getInstance().setBluetoothDataListener(this);
 
         if (bluetoothService != null){
             runOnUiThread(new Runnable() {
@@ -63,6 +67,7 @@ public class InformationActivity extends AppCompatActivity implements BluetoothS
                     textView.setText("设备已就绪");
                     imageView.setImageDrawable(getDrawable(R.drawable.ready));
                     cardView1.setCardBackgroundColor(getColor(R.color.light_blue));
+                    sendMessage1();
                 }
             });
         }
@@ -100,6 +105,7 @@ public class InformationActivity extends AppCompatActivity implements BluetoothS
                         public void run() {
                             // 使用新的 CardView 更新用户界面，其中包含图像、文本和时间
                             addInformationCard(message3, time);
+                            sendMessage2();
                         }
                     });
                 }
@@ -150,7 +156,7 @@ public class InformationActivity extends AppCompatActivity implements BluetoothS
                 );
                 params.setMargins(20, 20, 20, 20);
                 notificationCard.setLayoutParams(params);
-                notificationCard.setCardBackgroundColor(getResources().getColor(com.google.android.material.R.color.cardview_light_background)); // 设置您想要的颜色
+                notificationCard.setCardBackgroundColor(Color.BLUE); // 设置您想要的颜色
 
                 // 创建 CardView 的布局（ImageView、TextView 和时间 TextView）
                 LinearLayout layout = new LinearLayout(InformationActivity.this);
@@ -207,5 +213,21 @@ public class InformationActivity extends AppCompatActivity implements BluetoothS
     @Override
     public void onDataReceived(String newData) {
 
+    }
+
+    public void sendMessage1() {
+        if (bluetoothService != null) {
+            bluetoothService.write(hexStringToByteArray("AAAABBAAAA"));
+        } else {
+            Toast.makeText(InformationActivity.this, "请先连接设备哦~", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void sendMessage2() {
+        if (bluetoothService != null) {
+            bluetoothService.write(hexStringToByteArray("AAAABBAABB"));
+        } else {
+            Toast.makeText(InformationActivity.this, "请先连接设备哦~", Toast.LENGTH_SHORT).show();
+        }
     }
 }

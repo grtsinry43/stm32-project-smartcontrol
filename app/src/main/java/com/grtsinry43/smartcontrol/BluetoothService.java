@@ -52,13 +52,6 @@ public class BluetoothService {
         return instance;
     }
 
-    public static BluetoothService getInstance() {
-        if (instance == null) {
-
-        }
-        return instance;
-    }
-
     public void connect() {
         try {
             if (mmSocket != null) {
